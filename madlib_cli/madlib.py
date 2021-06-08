@@ -13,8 +13,8 @@ def read_template(file_path):
         with open(file_path,'r') as reader:
             file_content = reader.read()
             return file_content
-    except FileNotFoundError:
-        return('file not found')
+    except FileNotFoundError as error:
+            print(error)
 
 def parse_template(parsed_template):
     """
