@@ -13,8 +13,8 @@ def read_template(file_path):
         with open(file_path,'r') as reader:
             file_content = reader.read()
             return file_content
-    except FileNotFoundError as error:
-            print(error)
+    except FileNotFoundError:
+            raise
 
 def parse_template(parsed_template):
     """
@@ -50,8 +50,8 @@ def merge(actual_stripped,user_answers):
 
 
 if __name__ == '__main__':  
-    parsed_template = read_template(make_me_path)
-    # parsed_template = read_template(path)
+    # parsed_template = read_template(make_me_path)
+    parsed_template = read_template(path)
     actual_stripped, actual_parts = parse_template(parsed_template)
     user_answers = ask_user(actual_parts)
     merge(actual_stripped,user_answers)
